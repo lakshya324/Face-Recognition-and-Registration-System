@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Flashed Messages
+{% endblock %}
+
+{% block content %}
+  <h1>Flashed Messages</h1>
+
+  {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+      <ul class="flashes">
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ category }} : {{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <br>
+  <h1>Users Details</h1>
+    <ul class="flashes">
+      {% for user in users %}
+        <li>{{ user.username }} : {{ user.email }} : {{ user.password }} : {{ user.date_created }}</li>
+      {% endfor %}
+    </ul>
+
+  <a href="{{ url_for('index') }}">Go back</a>
+{% endblock %}

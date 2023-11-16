@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Update User
+{% endblock %}
+
+{% block content %}
+  <div class="wrapper">
+    <h1>Update User</h1>
+    <form method="POST" action="{{ url_for('update') }}">
+      {{ form.hidden_tag() }}
+
+      <div class="input-box">
+        <img src="{{ url_for('static', filename = 'css/images/user.png') }}" />
+        {{ form.username(placeholder = 'Username') }}
+        {% for error in form.username.errors %}
+          <p class="error-message">{{ error }}</p>
+        {% endfor %}
+      </div>
+
+      <div class="input-box">
+        <img src="{{ url_for('static', filename = 'css/images/lock.png') }}" />
+        {{ form.password(placeholder = 'Password') }}
+        {% for error in form.password.errors %}
+          <p class="error-message">{{ error }}</p>
+        {% endfor %}
+      </div>
+
+      <div class="input-box">
+        <img src="{{ url_for('static', filename = 'css/images/shield.png') }}" />
+        {{ form.confirm_password(placeholder = 'Confirm Password') }}
+        {% for error in form.confirm_password.errors %}
+          <p class="error-message">{{ error }}</p>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="btn">Update Password</button>
+    </form>
+  </div>
+{% endblock %}

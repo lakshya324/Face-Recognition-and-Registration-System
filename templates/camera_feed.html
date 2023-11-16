@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Image Capture
+{% endblock %}
+{% block content %}
+  <div class="wrapper2">
+    <h1>{{ use }} Image Capture for {{ username }}</h1>
+    <form method="post">
+      <div class="buttons">
+        <input type="submit" value="Stop/Start" name="stop" class="btn-overdo" />
+        <input type="submit" value="Capture" name="click" class="btn-overdo" />
+        <input type="submit" value="Grey" name="grey" class="btn-overdo" />
+        <input type="submit" value="Negative" name="neg" class="btn-overdo" />
+        <input type="submit" value="Face" name="face" class="btn-overdo" />
+        <input type="submit" value="Face Only" name="face_only" class="btn-overdo" />
+      </div>
+    </form>
+    <img src="{{ url_for('video_feed') }}" height="80%" />
+    <h3 style="font-family:courier;">Instructions:</h3>
+    <ol style="font-family:courier;">
+      <li>Stop/Start--Toggle between stop or start live streaming</li>
+      <li>Capture--Take still-shot and save in the 'shots' directory</li>
+      <li>Grey--Toggle between grayscale and RGB output</li>
+      <li>Negative--Toggle between negative and RGB output</li>
+      <li>Face --Shows your face if present(Toggle on/off)</li>
+      <li>
+        Face Only--Shows <b>just</b> your face if present(Toggle on/off)
+      </li>
+    </ol>
+  </div>
+{% endblock %}

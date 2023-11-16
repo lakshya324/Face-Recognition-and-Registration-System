@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Welcome {{ username }}
+{% endblock %}
+
+{% block content %}
+    <div class="home_page">
+    <img src="{{ url_for('static', filename='users/'+username+'.png') }}" class="profile-image" alt="Image of User">
+    <center>
+        <h1>Welcome {{ username.title() }}</h1>
+    <div class="buttons">
+    <a href="{{ url_for('register_tasks',username=username) }}" class="btn-overdo">Update Image</a>
+    <a href="{{ url_for('logout') }}" class="btn-overdo">Logout</a>
+    <a href="{{ url_for('delete',username=username) }}" class="btn-overdo">Delete Account</a>
+    </div>
+    </center>
+    </div>
+{% endblock %}
