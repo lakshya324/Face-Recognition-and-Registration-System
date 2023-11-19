@@ -241,8 +241,9 @@ def register_tasks(username:str):
             if success:
                 flash(f"User Registered Successful! username:{username}",'message')
                 now = datetime.datetime.now()
-                # frame=detect_face(frame,True)
-                # url_save=f'{username}.png'
+                # frame = detect_face(frame, True)
+                # if frame is not None:
+                    # url_save=f'{username}.png'
                 p = os.path.sep.join(['static','users', f'{username}.png'])
                 cv2.imwrite(p, frame)
                 camera.release()
