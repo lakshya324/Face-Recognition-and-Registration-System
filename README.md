@@ -1,4 +1,4 @@
-# Face Recognition and Registration System - Task 3 MLCOE
+# Face Recognition and Registration System
 
 This is a simple face recognition and registration system implemented using Flask, OpenCV, and face_recognition library. The system allows users to register, log in, and verify their identity using facial recognition.
 
